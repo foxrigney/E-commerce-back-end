@@ -53,7 +53,9 @@ router.put('/:id', async (req, res) => {
       category_name: req.body.category_name,
 
     }, {
+      where:{
       _id: req.params.id,
+      }
     });
     if (!categoryData) {
       res.status(404).json({ message: 'No category data found in this id!' })
