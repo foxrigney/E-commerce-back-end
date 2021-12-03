@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
 
     }, {
       where:{
-      _id: req.params.id,
+      id: req.params.id,
       }
     });
     if (!categoryData) {

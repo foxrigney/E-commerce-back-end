@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { where } = require('sequelize/types');
 const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
@@ -53,11 +52,11 @@ router.put('/:id', async (req, res) => {
 
     }, {
       where:{
-      _id: req.params.id,
+      id: req.params.id,
       }
   
     });
-    if (!tagData) {
+    if (!tagData[0]){
       res.status(404).json({ message: 'No tag data found in this id!' })
     };
 
